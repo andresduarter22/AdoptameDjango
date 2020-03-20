@@ -16,8 +16,8 @@ class User(models.Model):
 class Form(models.Model):
     ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
     ID_animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    Date =
-    Area =
+    Date = models.DateField()
+    Area = models.CharField(max_length=200)
     cellphone = models.CharField(max_length=200)
 
 
@@ -34,7 +34,7 @@ class Animal(models.Model):
     ID_animal = models.IntegerField(unique=True, primary_key=True)
     race = models.CharField(max_length=200)
     gender = models.CharField(max_length=6,choices=GENDER_CHOICES)
-    size =
+    size = models.CharField(max_length=200)
     age = models.IntegerField()
     picture = models.ImageField()
     status = models.CharField(max_length=200,choices=STATUS_CHOICES)
