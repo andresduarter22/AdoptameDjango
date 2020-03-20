@@ -37,7 +37,6 @@ class Form(models.Model):
     Area = models.CharField(max_length=200)
     cellphone = models.CharField(max_length=200)
 
-
 class PhoneNumber(models.Model):
     ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
     cellphone = models.CharField(max_length=10)
