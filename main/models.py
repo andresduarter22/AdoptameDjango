@@ -12,15 +12,6 @@ class User(models.Model):
     def __str__(self):
         return self.nombre
 
-
-class Form(models.Model):
-    ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    ID_animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    Date = models.DateField()
-    Area = models.CharField(max_length=200)
-    cellphone = models.CharField(max_length=200)
-
-
 class Animal(models.Model):
     STATUS_CHOICES = (
         ('a', 'for_adoption'),
@@ -38,6 +29,13 @@ class Animal(models.Model):
     age = models.IntegerField()
     picture = models.ImageField()
     status = models.CharField(max_length=200,choices=STATUS_CHOICES)
+
+class Form(models.Model):
+    ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ID_animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    Date = models.DateField()
+    Area = models.CharField(max_length=200)
+    cellphone = models.CharField(max_length=200)
 
 
 class PhoneNumber(models.Model):
