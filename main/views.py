@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from .models import User, Animal, Form, PhoneNumber
 from django.http import HttpResponse
 
 def home(respone):
-    return HttpResponse("<h1>Hello world</h1>")
+    return render(respone,"main/home.html")

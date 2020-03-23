@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+
+        <!-- Latest compiled JavaScript -->
+        <script src="bootstrap\js\bootstrap.min.js"></script>
+        <script src="bootstrap\js\bootstrap.bundle.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="bootstrap\css\bootstrap.min.css">
+
+        <link rel="stylesheet" href="csslocal\csspaola.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Home Logged</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a href="homeLogged.html"><img src="images/logo.png" class="img-fluid float-right" alt="Responsive image" ></a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link btn btn-danger btn-space text-white" href="home.html" >Cerrar Sesión</a>
+              </li>
+              
+            </ul>
+          </nav>
+          <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+            <ul class="navbar-nav ">
+              <li class="nav-item active">
+                <a class="nav-link" href="search.html">Búsqueda</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" data-toggle="modal" data-target="#formModal" href="#">Formulario</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="profile.html">Mi perfil</a>
+              </li>
+            </ul>
+          </nav>
+          <!--form modal-->
+          <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Formulario</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Introduce una imagen del animal</label>
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">zona</label>
+                      <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="zona">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleDropdownFormPassword1">Número de referencia</label>
+                      <input type="text" class="form-control" id="exampleDropdownFormPassword1" placeholder="Ex: 7205842">
+                    </div>
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Estado
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">En adopción</a>
+                          <a class="dropdown-item" href="#">Perdido</a>
+                          <a class="dropdown-item" href="#">Encontrado</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Raza
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Perro</a>
+                          <a class="dropdown-item" href="#">Gato</a>
+                          <a class="dropdown-item" href="#">Caballo</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Sexo
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Hembra</a>
+                          <a class="dropdown-item" href="#">Macho</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Tamaño
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Muy pequeño</a>
+                          <a class="dropdown-item" href="#">Pequeño</a>
+                          <a class="dropdown-item" href="#">Mediano</a>
+                          <a class="dropdown-item" href="#">Grande</a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div><a type="submit" class="btn btn-info btn-space-l btn-space-bottom" href="homeLogged.html">Crear formulario</a></div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+</html>
