@@ -10,7 +10,7 @@ class User(models.Model):
     Mail = models.EmailField(max_length = 254)
     password = forms.CharField(widget=forms.PasswordInput)
     def __str__(self):
-        return self.nombre
+        return self.Name
 
 class Animal(models.Model):
     STATUS_CHOICES = (
