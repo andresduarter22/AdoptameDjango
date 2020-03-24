@@ -3,4 +3,4 @@ from .models import User, Animal, Form, PhoneNumber
 from django.http import HttpResponse
 
 def home(respone):
-    return render(respone,"main/home.html")
+    return render(respone,"main/index.html")
