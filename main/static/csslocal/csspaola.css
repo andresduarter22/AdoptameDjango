@@ -131,16 +131,17 @@ div.card-box.align-center{
     padding-left: 60px;
 }
 
-nav.navbar.navbar-expand-sm.navbar-dark{
-    background: linear-gradient(to right, #ff99cc 0%, #80e5e5 45%);
+nav.navbar.navbar-expand{
+    background: linear-gradient(to bottom, #545454 0%, #212121 100%);
+    min-height: auto;
 }
 
-.navbar-expand-sm > ul:nth-child(1){
-    margin-right: 12%;
+section.menu:nth-child(3) > nav:nth-child(1) > ul:nth-child(1){
+    margin-left: 15%;
 }
 
 ul.navbar-nav:nth-child(3){
-    margin-left: 12%;
+    margin-right: 15%;
 }
 
 div.modal-dialog div.modal-content{
@@ -149,6 +150,7 @@ div.modal-dialog div.modal-content{
     font-size: 1.8rem;
     color: #545454;
     height: auto;
+    font-family: initial;
 }
 
 div.form-group input.form-control{
@@ -162,7 +164,7 @@ div.modal-body a.btn.btn-danger{
     font-size: 1.2rem;
     display: block;
     font-weight: 400;
-    font-family: initial;
+    
 }
 
 div.modal-content div.modal-header img{
@@ -172,4 +174,174 @@ div.modal-content div.modal-header img{
 
 div.form-group i.fas{
     margin-left: 20px;
+}
+
+ul.navbar-nav li.nav-item.active a.nav-link{
+    color: #80e5e5;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+section.menu.cid-qTkzRZLJNu.sticky-top{
+    line-height: 0.8;
+    z-index: 1041;
+}
+
+div.modal-dialog div#contenedor.modal-content{
+    line-height: 1.5;
+}
+
+ul.navbar-nav:nth-child(2) > li:nth-child(1) > a:nth-child(1){
+    color: #d0b5d5;
+}
+
+ul.navbar-nav:nth-child(3) > li:nth-child(1) > a:nth-child(1){
+    color:#ff99cc;
+}
+
+section#header2-1.cid-qTkA127IK8.mbr-fullscreen.mbr-parallax-background{
+    background-image: url(../images/intro-1753x873.jpg)!important;
+}
+
+/*Profile*/
+body section#perfil.mbr-fullscreen{
+    background: linear-gradient(45deg, #ff99cc, #108a9e);
+    box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
+}
+
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+div.profile-img div.file.btn.btn-lg.btn-primary {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20% !important;
+    width: 70%;
+    border: none !important;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8 !important;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #108a9e;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 500;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:500;
+    border: none;
+    border-radius: 0px !important;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 14px;
+    color: #818182;
+    font-weight: 500;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 500;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 500;
+}
+.profile-tab p{
+    font-weight: 500;
+    color: #2ab0d1;
+}
+
+/*Formulario*/
+div.form-group.row div.col-sm-10{
+    padding-left: 20px;
+}
+
+input#exampleFormControlFile1.form-control-file{
+    font-size: smaller;
+}
+
+.fa-location-arrow{
+    margin-top: 15px;
+}
+
+.fa-phone{
+    margin-top: 15px;
+}
+
+div#bodi.modal-body{
+    padding-top: 30px;
+}
+
+div.form-group label{
+    font-size: 1.3rem;
+}
+
+div#bodi.modal-body div.form-row{
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+select.form-control{
+    font-family: initial;
+}
+
+div.form-group.row i.fas.prefix.grey-text{
+    margin-left: 40px;
+}
+
+div#dial.modal-dialog{
+    max-width: 650px;
 }
