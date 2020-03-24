@@ -2,14 +2,14 @@ from django.shortcuts import render
 from .models import User, Animal, Form, PhoneNumber
 from django.http import HttpResponse
 
-def home(respone):
-    return render(respone, "main/home.html")
+def home(response):
+    return render(response, "main/home.html")
 
-def homeLog(respone):
-    return render(respone, "main/homeLog.html")
+def homeLog(response):
+    return render(response, "main/homeLog.html")
 
-def profile(respone):
-    return render(respone, "main/profile.html")
+def profile(response):
+    return render(response, "main/profile.html")
 
-def search(respone):
-    return render(respone, "main/search.html")
+def search(response):
+    return render(response, "main/search.html")
