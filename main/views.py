@@ -3,7 +3,7 @@ from .models import User, Animal, Form, PhoneNumber
 from django.http import HttpResponse
 
 def home(response):
-    return render(response, "main/home.html")
+    return render(response, "main/index.html")
 
 def homeLog(response):
     return render(response, "main/homeLog.html")
