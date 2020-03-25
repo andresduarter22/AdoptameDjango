@@ -22,7 +22,7 @@ class Animal(models.Model):
         ('m', 'male'),
         ('f', 'female')
     )
-    ID_animal = models.IntegerField(unique=True, primary_key=True)
+    ID_animal = models.AutoField(unique=True, primary_key=True)
     race = models.CharField(max_length=200)
     gender = models.CharField(max_length=6,choices=GENDER_CHOICES)
     size = models.CharField(max_length=200)
