@@ -72,23 +72,25 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                  <div class="form-group">
-                    <i class="fas fa-user prefix grey-text"></i>
-                    <input type="text" class="form-control" id="SPName" placeholder="Nombre">
-                  </div>
-                  <div class="form-group">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" class="form-control" id="SPEmail" placeholder="email@example.com">
-                  </div>
-                  <div class="form-group">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" class="form-control" id="SPPssw" placeholder="Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" class="form-control" id="SPRPssw" placeholder="Repite la contraseña">
-                  </div>
-                  <a type="submit" class="btn btn-danger" href="/homeLogged/">Registrarse</a>
+                    <form method="post" action="/home/">
+                      <div class="form-group">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" class="form-control" id="SPName" name="SPName" placeholder="Nombre">
+                      </div>
+                      <div class="form-group">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" class="form-control" id="SPEmail" name="SPEmail" placeholder="email@example.com">
+                      </div>
+                      <div class="form-group">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" class="form-control" id="SPPssw" name="SPPssw" placeholder="Contraseña">
+                      </div>
+                      <div class="form-group">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" class="form-control" id="SPRPssw" name="SPRPssw" placeholder="Repite la contraseña">
+                      </div>
+                      <input type="submit" class="btn btn-danger">Registrarse</input>
+                    </form>
                 </div>
                 <div class="modal-footer">
                 </div>

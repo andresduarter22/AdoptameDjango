@@ -5,7 +5,7 @@ from django import forms
 # Create your models here.
 
 class User(models.Model):
-    ID_user = models.IntegerField(unique=True, primary_key=True)
+    ID_user = models.AutoField(unique=True, primary_key=True)
     Name = models.CharField(max_length=200)
     Mail = models.EmailField(max_length = 254)
     password = forms.CharField(widget=forms.PasswordInput)
@@ -20,7 +20,7 @@ class Animal(models.Model):
     )
     GENDER_CHOICES = (
         ('m', 'male'),
-        ('f','female')
+        ('f', 'female')
     )
     ID_animal = models.IntegerField(unique=True, primary_key=True)
     race = models.CharField(max_length=200)
