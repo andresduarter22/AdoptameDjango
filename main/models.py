@@ -22,6 +22,16 @@ class Animal(models.Model):
         ('m', 'male'),
         ('f', 'female')
     )
+    SIZE_CHOICES = (
+        ('s', 'short'),
+        ('m', 'medium'),
+        ('b', 'big')
+    )
+    RACE_CHOICES = (
+        ('d', 'dog'),
+        ('c', 'cat'),
+        ('o', 'other')
+    )
     ID_animal = models.AutoField(unique=True, primary_key=True)
     race = models.CharField(max_length=200)
     gender = models.CharField(max_length=6,choices=GENDER_CHOICES)
