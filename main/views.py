@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import User, Animal, Form, PhoneNumber
+from .models import User as UserDB, Animal, Form, PhoneNumber
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
@@ -26,17 +26,21 @@ class Home(View):
     def createUser(self, data):
         user = User.objects.create_user(str(data.get("SPName")), str(data.get("SPEmail")), str(data.get("SPPssw")))
         user.save()
+        usr = UserDB(None, str(user.username), str(data.get("SPFisrtName") + " " + data.get("SPLastName")), None)
+        UserDB.save(usr)
 
 
 
 def homeLog(response):
-    data = User.objects.get(id=response.user.id)
-    usr = {"user_info": response.user.id}
+    # data = User.objects.get(id=response.user.id)
+    usr = {"user_info": response.user.id, "name": UserDB.Name, "userName": UserDB.UserName, "picture": UserDB.ProfilePic}
     return render(response, "main/homeLog.html", usr)
 
 
 def profile(response):
-    return render(response, "main/profile.html")
+    # q = User.objects.raw('SELECT  * FROM User ')
+    usr = {"ID": response.user.id, "name": UserDB.Name, "userName": UserDB.UserName, "picture": UserDB.ProfilePic, "email": User.email}
+    return render(response, "main/profile.html", usr)
 
 
 def search(response):
