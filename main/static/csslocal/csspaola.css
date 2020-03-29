@@ -157,12 +157,12 @@ div.form-group input.form-control{
     font-family: initial;
 }
 
-div.modal-body a.btn.btn-danger{
+div.modal-body form input.btn.btn-info{
     background-color: #545454 !important;
     border-color: #545454 !important;
     letter-spacing: 2px;
     font-size: 1.2rem;
-    display: block;
+    width: -moz-available;
     font-weight: 400;
     
 }
