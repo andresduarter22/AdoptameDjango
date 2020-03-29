@@ -3,6 +3,8 @@
     <words>
       <w>correo</w>
       <w>nombre</w>
+      <w>pssw</w>
+      <w>psswd</w>
     </words>
   </dictionary>
 </component>

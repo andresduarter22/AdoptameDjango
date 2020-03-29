@@ -1,15 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import TemplateView
 from .models import User, Animal, Form, PhoneNumber
-from django.http import HttpResponse, HttpRequest
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login as auth_login
 
 
 class Home(View):
@@ -33,8 +28,11 @@ class Home(View):
         user.save()
 
 
+
 def homeLog(response):
-    return render(response, "main/homeLog.html")
+    data = User.objects.get(id=response.user.id)
+    usr = {"user_info": response.user.id}
+    return render(response, "main/homeLog.html", usr)
 
 
 def profile(response):

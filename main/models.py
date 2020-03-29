@@ -6,11 +6,9 @@ from django import forms
 
 class User(models.Model):
     ID_user = models.AutoField(unique=True, primary_key=True)
+    UserName = models.CharField(max_length=200, default="Pedro")
     Name = models.CharField(max_length=200)
-    Mail = models.EmailField(max_length = 254)
-    password = forms.CharField(widget=forms.PasswordInput)
-    def __str__(self):
-        return self.Name
+    ProfilePic = models.ImageField(default="main/static/media/user/rey.png", upload_to="main/static/media/user/")
 
 class Animal(models.Model):
     STATUS_CHOICES = (
@@ -34,11 +32,11 @@ class Animal(models.Model):
     )
     ID_animal = models.AutoField(unique=True, primary_key=True)
     race = models.CharField(max_length=200)
-    gender = models.CharField(max_length=6,choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
     size = models.CharField(max_length=200)
     age = models.IntegerField()
     picture = models.ImageField()
-    status = models.CharField(max_length=200,choices=STATUS_CHOICES)
+    status = models.CharField(max_length=200, choices=STATUS_CHOICES)
 
 class Form(models.Model):
     ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
