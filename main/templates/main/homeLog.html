@@ -94,6 +94,8 @@
                     </div>
                     <div class="modal-body" id="bodi">
                   <!--<form>-->
+                    <form method="post">
+                      {% csrf_token %}
                         <div class="form-group row">
                             <i class="fas fa-camera prefix grey-text"></i>
                             <div class="col-sm-10">
@@ -152,6 +154,7 @@
                         </div>
                         </div>
                         <a type="submit" class="btn btn-danger" href="#">Crear formulario</a>
+                    </form>
                     </div>
                   <!--</form>-->
                     <div class="modal-footer">
