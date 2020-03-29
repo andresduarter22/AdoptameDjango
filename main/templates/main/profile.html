@@ -26,7 +26,6 @@
   <link rel="preload" as="style" href="../../static/assets/mobirise/css/mbr-additional.css">
   <link rel="stylesheet" href="../../static/assets/mobirise/css/mbr-additional.css" type="text/css">
   <link rel="stylesheet" href="../../static/csslocal/csspaola.css">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   
   
 </head>
@@ -93,6 +92,8 @@
                     </div>
                     <div class="modal-body" id="bodi">
                   <!--<form>-->
+                    <form method="post">
+                      {% csrf_token %}
                         <div class="form-group row">
                             <i class="fas fa-camera prefix grey-text"></i>
                             <div class="col-sm-10">
@@ -151,6 +152,7 @@
                         </div>
                         </div>
                         <a type="submit" class="btn btn-danger" href="#">Crear formulario</a>
+                      </form>
                     </div>
                   <!--</form>-->
                     <div class="modal-footer">

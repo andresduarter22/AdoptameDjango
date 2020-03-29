@@ -31,12 +31,12 @@ class Animal(models.Model):
         ('o', 'other')
     )
     ID_animal = models.AutoField(unique=True, primary_key=True)
-    race = models.CharField(max_length=200)
-    gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
-    size = models.CharField(max_length=200)
-    age = models.IntegerField()
     picture = models.ImageField()
     status = models.CharField(max_length=200, choices=STATUS_CHOICES)
+    race = models.CharField(max_length=200, choices=RACE_CHOICES)
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
+    size = models.CharField(max_length=200, choices=SIZE_CHOICES)
+    
 
 class Form(models.Model):
     ID_user = models.ForeignKey(User, on_delete=models.CASCADE)
