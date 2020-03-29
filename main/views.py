@@ -38,8 +38,9 @@ def homeLog(response):
 
 
 def profile(response):
-    # q = User.objects.raw('SELECT  * FROM User ')
-    usr = {"ID": response.user.id, "name": UserDB.Name, "userName": UserDB.UserName, "picture": UserDB.ProfilePic, "email": User.email}
+    q = UserDB.objects.filter(UserName= response.user.username)
+    tel = PhoneNumber.objects.filter(ID_user=q.values('ID_user')[0]['ID_user'])
+    usr = {"ID": response.user.id, "name": str(q.values('Name')[0]['Name']), "userName":  str(q.values('UserName')[0]['UserName']), "picture": UserDB.ProfilePic, "email": response.user.email, "cellPhone": str([x['cellphone'] for x in list(tel.values('cellphone'))]).translate(str.maketrans('', '', '[\']'))}
     return render(response, "main/profile.html", usr)
 
 
