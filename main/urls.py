@@ -9,5 +9,6 @@ urlpatterns =[
     path("homeLog/", login_required(views.homeLog), name="homeLog"),
     path("profile/", login_required(views.profile), name="profile"),
     path("search/", login_required(views.search), name="search"),
-    path("logout/", views.logout, name = "logout")
+    path("logout/", views.logout, name="logout"),
+    path("form/", views.form, name="form")
 ]

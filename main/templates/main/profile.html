@@ -50,7 +50,6 @@
                          <a href="/homeLog/"><img src="../../static/assets/images/logo-192x76.png" alt="Mobirise" title="" style="height: 6.8rem;"><a/>
                     
                 </span>
-                
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -92,66 +91,66 @@
                     </div>
                     <div class="modal-body" id="bodi">
                   <!--<form>-->
-                    <form method="post">
+                    <form method="post" id="formAnimal" action="/form/">
                       {% csrf_token %}
                         <div class="form-group row">
                             <i class="fas fa-camera prefix grey-text"></i>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" class="form-control-file" id="PetImage" name="PetImage">
                             </div>
                         </div>
                         <div class="form-group row">
                             <i class="fas fa-location-arrow prefix grey-text"></i>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Ubicación">
+                                <input type="text" class="form-control" id="Place" name="Place" placeholder="Ubicación">
                             </div>
                         </div>
                         <div class="form-group row">
                             <i class="fas fa-phone prefix grey-text"></i>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="exampleDropdownFormPassword1" placeholder="Número de celular o fijo">
+                                <input type="text" class="form-control" id="FormCellPhone" name="FormCellPhone" placeholder="Número de celular o fijo">
                             </div>
                         </div>
                         <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEstado">Estado</label>
-                            <select id="inputEstado" class="form-control">
-                              <option selected>-Seleccione un estado-</option>
-                              <option>Adopción</option>
-                              <option>Encontrado</option>
-                              <option>Perdido</option>
+                            <select id="inputEstado" name="inputEstado" class="form-control" form="formAnimal">
+                              <option value="" disabled>-Seleccione un estado-</option>
+                              <option value="a">Adopción</option>
+                              <option value="f">Encontrado</option>
+                              <option value="l">Perdido</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEstado">Especie</label>
-                            <select id="inputEstado" class="form-control">
-                              <option selected>-Seleccione una especie-</option>
-                              <option>Perro</option>
-                              <option>Gato</option>
-                              <option>Otro</option>
+                            <select id="inputEspecie" name="inputEspecie" class="form-control" form="formAnimal">
+                              <option value="" disabled>-Seleccione una especie-</option>
+                              <option value="d">Perro</option>
+                              <option value="c">Gato</option>
+                              <option value="o">Otro</option>
                             </select>
                         </div>
                         </div>
                         <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputEstado">Sexo</label>
-                            <select id="inputEstado" class="form-control">
-                              <option selected>-Seleccione un sexo-</option>
-                              <option>Hembra</option>
-                              <option>Macho</option>
+                            <select id="inputSexo" name="inputSexo" class="form-control" form="formAnimal">
+                              <option value="" disabled>-Seleccione un sexo-</option>
+                              <option value="f">Hembra</option>
+                              <option value="m">Macho</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEstado">Tamaño</label>
-                            <select id="inputEstado" class="form-control">
-                              <option selected>-Seleccione un tamaño-</option>
-                              <option>Pequeño</option>
-                              <option>Mediano</option>
-                              <option>Grande</option>
+                            <select id="inputT" name="inputT" class="form-control" form="formAnimal">
+                              <option value="" disabled>-Seleccione un tamaño-</option>
+                              <option value="s">Pequeño</option>
+                              <option value="m">Mediano</option>
+                              <option value="b">Grande</option>
                             </select>
                         </div>
                         </div>
-                        <a type="submit" class="btn btn-danger" href="#">Crear formulario</a>
+                        <input type="submit" class="btn btn-danger" value="Crear formulario"/>
                       </form>
                     </div>
                   <!--</form>-->
@@ -229,11 +228,6 @@
                                     <label>Teléfono/Celular</label>
                                 </div>
                                 <div class="col-md-6">
-                                  <select class="selectpicker">
-                                    <option selected>234 562 3418</option>
-                                    <option>987 654 9875</option>
-                                    <option disabled>123 456 7890</option>
-                                  </select>
                                     <p>{{cellPhone}}</p>
                                 </div>
                             </div>
@@ -249,18 +243,12 @@
                                   </tr>
                                  </thead>
                                  <tbody>
+                                    {% for f in Publicaciones%}
                                     <tr>
-                                      <td>13/03/20</td>
-                                      <td>En adoción</td>
+                                      <td>{{ f.Date }}</td>
+                                      <td>{{ f.Area }}</td>
                                     </tr>
-                                    <tr>
-                                      <td>04/02/20</td>
-                                      <td>Perdido</td>
-                                    </tr>
-                                    <tr>
-                                      <td>29/01/20</td>
-                                      <td>Encontrado</td>
-                                    </tr>
+                                    {% endfor %}
                                   </tbody>
                                 </div>
                         </div>

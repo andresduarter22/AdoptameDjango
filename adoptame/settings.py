@@ -119,3 +119,4 @@ LOGIN_URL = '/'
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = '/main/static/media/user/'
+MEDIA_URL = '/media/'
