@@ -172,7 +172,7 @@
                 <div class="form-group col-md">
                     <label for="inputEstado">Estado</label>
                     <select id="inputEstadoS" name="inputEstadoS" class="form-control" form="formSearch">
-                              <option value="" disabled>-Seleccione un estado-</option>
+                              <option value="" >-Seleccione un estado-</option>
                               <option value="a">Adopción</option>
                               <option value="f">Encontrado</option>
                               <option value="l">Perdido</option>
@@ -181,7 +181,7 @@
                 <div class="form-group col-md">
                     <label for="inputEstado">Especie</label>
                     <select id="inputEspecieS" name="inputEspecieS" class="form-control" form="formSearch">
-                              <option value="" disabled>-Seleccione una especie-</option>
+                              <option value="" >-Seleccione una especie-</option>
                               <option value="d">Perro</option>
                               <option value="c">Gato</option>
                               <option value="o">Otro</option>
@@ -190,7 +190,7 @@
                 <div class="form-group col-md">
                     <label for="inputEstado">Sexo</label>
                     <select id="inputSexoS" name="inputSexoS" class="form-control" form="formSearch">
-                              <option value="" disabled>-Seleccione un sexo-</option>
+                              <option value="" >-Seleccione un sexo-</option>
                               <option value="f">Hembra</option>
                               <option value="m">Macho</option>
                     </select>
@@ -198,7 +198,7 @@
                 <div class="form-group col-md">
                     <label for="inputEstado">Tamaño</label>
                     <select id="inputTS" name="inputTS" class="form-control" form="formSearch">
-                              <option value="" disabled>-Seleccione un tamaño-</option>
+                              <option value="" >-Seleccione un tamaño-</option>
                               <option value="s">Pequeño</option>
                               <option value="m">Mediano</option>
                               <option value="b">Grande</option>
@@ -221,7 +221,7 @@
                                     En adopción
                                 {% elif d.status == 'f' %}
                                     Encontrado
-                                {% elif d.status == 'f' %}
+                                {% elif d.status == 'l' %}
                                     Perdido
                                 {% endif %}</h4>
                         <p>Sexo: {% if d.gender == 'f'  %}
@@ -239,18 +239,74 @@
                       </div>
                       <div class="card-footer">
                         <p>
-                          <a href="#">Saber más</a>
+                          <a class="nav-link" data-toggle="modal" data-target="#infoModal" href="#">Saber más</a>
                         </p>
                       </div>
                     </div>
                   </div>
                     {% endfor %}
-
                 </div>
+
         </div>
 
     </section>
 </form>
+ <!--more info modal-->
+        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" id="dial">
+                <div class="modal-content" id="contenedor">
+                    <div class="modal-header">
+                        <img src="../../static/images/logo-onlyimage.png">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="bodi">
+                  <!--<form>-->
+                        <div class="form-group row">
+                            <i class="fas fa-camera prefix grey-text"></i>
+                            <div class="col-sm-10">
+                                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalStatus" placeholder="Status"> Estado <p/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalRace" placeholder="Race"> Especie <p/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalGende" placeholder="Gender"> Sexo <p/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalSize" placeholder="Size"> Tamaño <p/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalDescription" placeholder="Description"> Descripción <p/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <p  class="form-control" id="FormCellPhone" name="ModalCellPhone" placeholder="CellPhone"> Número de teléfono <p/>
+                            </div>
+                        </div>
+
+                    </div>
+                  <!--</modal>-->
 
   <script src="../../static/assets/web/assets/jquery/jquery.min.js"></script>
   <script src="../../static/assets/popper/popper.min.js"></script>
@@ -268,6 +324,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
   
-  <input name="animation" type="hidden">
+  <input name="animation" type="hidden"/>
   </body>
 </html>

@@ -20,11 +20,12 @@ class Home(View):
             return render(request, "main/index.html")
         elif 'Inicio' in data:
             user = authenticate(username=str(data.get("UserName")), password=str(data.get("UserPsswd")))
-            # with open('./log.txt', 'w') as f:
-            #   f.write(str(user)
 
-            do_login(request, user)
-            return redirect('/homeLog')
+            if user:
+                do_login(request, user)
+                return redirect('/homeLog')
+            else:
+                return redirect('/')
 
     def createUser(self, data):
         user = User.objects.create_user(str(data.get("SPName")), str(data.get("SPEmail")), str(data.get("SPPssw")))
@@ -35,7 +36,7 @@ class Home(View):
 def form(request):
     data = request.POST
     # Añadir animal
-    animal = Animal(ID_animal=None, picture=None, status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")), gender=str(data.get("inputSexo")), size=str(data.get("inputT")))
+    animal = Animal(ID_animal=None, picture=data.get("PetImage"), status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")), gender=str(data.get("inputSexo")), size=str(data.get("inputT")))
     Animal.save(animal)
     # Añadir numero de telefono
     q = UserDB.objects.filter(UserName=request.user.username)
@@ -57,9 +58,10 @@ def profile(response):
     q = UserDB.objects.filter(UserName= response.user.username)
     q1 = FormDB.objects.filter(ID_user=q.values('ID_user')[0]['ID_user'])
     tel = PhoneNumber.objects.filter(ID_user=q.values('ID_user')[0]['ID_user'])
+    an = Animal.objects.filter(ID_animal=q1.values('ID_animal')[0]['ID_animal'])
     usr = {"ID": response.user.id, "name": str(q.values('Name')[0]['Name']), "userName":  str(q.values('UserName')[0]['UserName']),
            "picture": UserDB.ProfilePic, "email": response.user.email, "cellPhone": str([x['cellphone'] for x in list(tel.values('cellphone'))]).translate(str.maketrans('', '', '[\']')),
-           "Publicaciones": q1}
+           "Publicaciones": q1, "animal": an.values('description')[0]['description']}
 
 
     return render(response, "main/profile.html", usr)
@@ -67,9 +69,16 @@ def profile(response):
 
 def search(request):
     data = request.POST
+    q1 = Animal.objects.all()
     q = Animal.objects.filter(status=str(data.get("inputEstadoS"))).filter(race=str(data.get("inputEspecieS"))).filter(gender=str(data.get("inputSexoS"))).filter(size=str(data.get("inputTS")))
-    d = {"busqueda": q}
-    return render(request, "main/search.html", d)
+    with open('./log.txt', 'w') as f:
+        f.write(str(q))
+    if not q:
+        d1 = {"busqueda": q1}
+        return render(request, "main/search.html", d1)
+    else:
+        d = {"busqueda": q}
+        return render(request, "main/search.html", d)
 
 
 def logout(response):

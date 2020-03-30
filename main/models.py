@@ -35,6 +35,7 @@ class Animal(models.Model):
     race = models.CharField(max_length=200, choices=RACE_CHOICES)
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
     size = models.CharField(max_length=200, choices=SIZE_CHOICES)
+    description = models.CharField(max_length=500, choices=SIZE_CHOICES, default="Description Example")
     
 
 class Form(models.Model):
