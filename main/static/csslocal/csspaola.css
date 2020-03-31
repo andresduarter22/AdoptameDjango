@@ -124,11 +124,13 @@ div.card-box.align-center{
 }
 
 #features8-8 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1){
-    padding-right: 60px;
+    padding-right: 80px;
+    padding-left: inherit; 
 }
 
 #features8-8 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2){
-    padding-left: 60px;
+    padding-left: 80px;
+    padding-right: inherit; 
 }
 
 nav.navbar.navbar-expand{
