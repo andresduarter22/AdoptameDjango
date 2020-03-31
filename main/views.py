@@ -37,7 +37,8 @@ def form(request):
     data = request.POST
 
     # Añadir animal
-    animal = Animal(ID_animal=None, picture=request.FILES["PetImage"], status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")), gender=str(data.get("inputSexo")), size=str(data.get("inputT")))
+    animal = Animal(ID_animal=None, picture=request.FILES["PetImage"], status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")),
+                    gender=str(data.get("inputSexo")), size=str(data.get("inputT")), description=str(data.get("Descripcion")))
     animal.save()
     # Añadir numero de telefono
     q = UserDB.objects.filter(UserName=request.user.username)
