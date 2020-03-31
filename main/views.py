@@ -35,9 +35,10 @@ class Home(View):
 
 def form(request):
     data = request.POST
+
     # Añadir animal
-    animal = Animal(ID_animal=None, picture=data.get("PetImage"), status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")), gender=str(data.get("inputSexo")), size=str(data.get("inputT")))
-    Animal.save(animal)
+    animal = Animal(ID_animal=None, picture=request.FILES["PetImage"], status=str(data.get("inputEstado")), race=str(data.get("inputEspecie")), gender=str(data.get("inputSexo")), size=str(data.get("inputT")))
+    animal.save()
     # Añadir numero de telefono
     q = UserDB.objects.filter(UserName=request.user.username)
     cell = PhoneNumber(ID_user=q[0], cellphone=str(data.get("FormCellPhone")))
@@ -61,7 +62,7 @@ def profile(response):
     an = Animal.objects.filter(ID_animal=q1.values('ID_animal')[0]['ID_animal'])
     usr = {"ID": response.user.id, "name": str(q.values('Name')[0]['Name']), "userName":  str(q.values('UserName')[0]['UserName']),
            "picture": UserDB.ProfilePic, "email": response.user.email, "cellPhone": str([x['cellphone'] for x in list(tel.values('cellphone'))]).translate(str.maketrans('', '', '[\']')),
-           "Publicaciones": q1, "animal": an.values('description')[0]['description']}
+           "Publicaciones": q1, "animal": an.values('description')[0]['description'], "user": q}
 
 
     return render(response, "main/profile.html", usr)
@@ -70,11 +71,16 @@ def profile(response):
 def search(request):
     data = request.POST
     q1 = Animal.objects.all()
+    q2 = FormDB.objects.all()
+    q3 = PhoneNumber.objects.all()
+
+    def test(n):
+        return "hola" + str(n)
     q = Animal.objects.filter(status=str(data.get("inputEstadoS"))).filter(race=str(data.get("inputEspecieS"))).filter(gender=str(data.get("inputSexoS"))).filter(size=str(data.get("inputTS")))
-    with open('./log.txt', 'w') as f:
-        f.write(str(q))
+    # with open('./log.txt', 'w') as f:
+    #    f.write(str(q))
     if not q:
-        d1 = {"busqueda": q1}
+        d1 = {"busqueda": q1, "form": q2, "phone": q3, "test": test}
         return render(request, "main/search.html", d1)
     else:
         d = {"busqueda": q}
@@ -84,3 +90,9 @@ def search(request):
 def logout(response):
     do_logout(response)
     return redirect("/")
+
+def changeUserPic(response):
+    user = UserDB.objects.filter(UserName= response.user.username)[0]
+    user.ProfilePic = response.FILES["UserImage"]
+    user.save()
+    return redirect("/profile/")

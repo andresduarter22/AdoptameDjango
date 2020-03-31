@@ -93,12 +93,12 @@
                     </div>
                     <div class="modal-body" id="bodi">
                   <!--<form>-->
-                    <form method="post" id="formAnimal" action="/form/">
+                    <form method="post" id="formAnimal" action="/form/" enctype="multipart/form-data">
                       {% csrf_token %}
                         <div class="form-group row">
                             <i class="fas fa-camera prefix grey-text"></i>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control-file" id="PetImage" name="PetImage">
+                                <input type="file" class="form-control-file" id="PetImage" name="PetImage" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group row">

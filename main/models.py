@@ -7,7 +7,7 @@ class User(models.Model):
     ID_user = models.AutoField(unique=True, primary_key=True)
     UserName = models.CharField(max_length=200, default="Pedro")
     Name = models.CharField(max_length=200)
-    ProfilePic = models.ImageField(default="main/static/media/user/rey.png", upload_to="main/static/media/user/")
+    ProfilePic = models.FileField(default="user/rey.png", upload_to="user/")
 
 class Animal(models.Model):
     STATUS_CHOICES = (
@@ -30,7 +30,7 @@ class Animal(models.Model):
         ('o', 'other')
     )
     ID_animal = models.AutoField(unique=True, primary_key=True)
-    picture = models.ImageField(default="main/static/media/animal/rey.png", upload_to="main/static/media/animal/")
+    picture = models.FileField(default="animal/rey.png", upload_to="animal/")
     status = models.CharField(max_length=200, choices=STATUS_CHOICES)
     race = models.CharField(max_length=200, choices=RACE_CHOICES)
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES)

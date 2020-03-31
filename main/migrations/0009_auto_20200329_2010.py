@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='animal',
             name='picture',
-            field=models.ImageField(default='main/static/media/animal/rey.png', upload_to='main/static/media/animal/'),
+            field=models.ImageField(default='main/static/media/animal/rey.png', upload_to='animal/'),
         ),
     ]

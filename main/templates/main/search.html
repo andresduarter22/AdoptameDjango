@@ -30,6 +30,7 @@
   
 </head>
 <body>
+
   <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
 
     
@@ -92,12 +93,12 @@
                     </div>
                     <div class="modal-body" id="bodi">
                   <!--<form>-->
-                    <form method="post" id="formAnimal" action="/form/">
+                    <form method="post" id="formAnimal" action="/form/" enctype="multipart/form-data">
                       {% csrf_token %}
                         <div class="form-group row">
                             <i class="fas fa-camera prefix grey-text"></i>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control-file" id="PetImage" name="PetImage">
+                                <input type="file" class="form-control-file" id="PetImage" name="PetImage" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -214,7 +215,7 @@
                     {% for d in busqueda %}
                   <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                      <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                      <img class="card-img-top" src="{{ d.picture.url }}" alt="">
                       <div class="card-body">
                         <h4 class="card-title">
                                 {% if d.status == 'a'  %}
@@ -239,9 +240,22 @@
                       </div>
                       <div class="card-footer">
                         <p>
-                          <a class="nav-link" data-toggle="modal" data-target="#infoModal" href="#">Saber más</a>
+                          <a class="nav-link" data-toggle="collapse" data-target="#collapseExample{{ d.ID_animal }}" >Saber más</a>
                         </p>
                       </div>
+                        <div class="collapse" id="collapseExample{{ d.ID_animal }}">
+                          <div class="card card-body">
+                            <p>Especie: {% if d.race == 'd'  %}
+                                    Perro
+                                {% elif d.race == 'c' %}
+                                    Gato
+                                {% elif d.race == 'o' %}
+                                    Otro
+                                {% endif %}</p>
+                            <p>Teléfono de referencia: </p>
+                            <p>Descripción: {{ d.description }}</p>
+                          </div>
+                        </div>
                     </div>
                   </div>
                     {% endfor %}
@@ -252,7 +266,8 @@
     </section>
 </form>
  <!--more info modal-->
-        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  {% for d in busqueda %}
+        <div class="modal fade" id="infoModal{{ d.ID_animal }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document" id="dial">
                 <div class="modal-content" id="contenedor">
                     <div class="modal-header">
@@ -271,7 +286,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <p  class="form-control" id="FormCellPhone" name="ModalStatus" placeholder="Status"> Estado <p/>
+                                <p  class="form-control" id="FormCellPhone" name="ModalStatus" placeholder="Status"> {{ d.status }} <p/>
                             </div>
                         </div>
 
@@ -295,7 +310,7 @@
 
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <p  class="form-control" id="FormCellPhone" name="ModalDescription" placeholder="Description"> Descripción <p/>
+                                <p  class="form-control" id="FormCellPhone" name="ModalDescription" placeholder="Description" > <p/>
                             </div>
                         </div>
 
@@ -306,6 +321,7 @@
                         </div>
 
                     </div>
+                    {% endfor %}
                   <!--</modal>-->
 
   <script src="../../static/assets/web/assets/jquery/jquery.min.js"></script>
